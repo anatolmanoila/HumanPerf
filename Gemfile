@@ -23,7 +23,9 @@ group :development, :test do
   gem 'spork', '0.9.2'
   gem "quiet_assets", ">= 1.0.1"
 end
-
+group :development do
+  gem 'annotate', '2.5.0'
+end
 group :test do
   gem 'capybara', '1.1.2'
   gem 'cucumber-rails', '1.2.1', :require => false
