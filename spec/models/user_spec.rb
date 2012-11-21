@@ -9,7 +9,7 @@
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
 #
-
+ 
 require 'spec_helper'
 
 describe User do
