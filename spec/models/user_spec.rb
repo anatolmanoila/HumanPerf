@@ -9,11 +9,11 @@
 #  updated_at      :datetime         not null
 #  password_digest :string(255)
 #
- 
+
 require 'spec_helper'
 
 describe User do
-  before do 
+  before do
   	@user = User.new(name: "Example User", email: "user@example.com",
   					 password: "foobar", password_confirmation:"foobar" )
 
@@ -40,30 +40,30 @@ describe User do
   	it { should_not be_valid }
   end
 
-  describe "when name is too long" do 
+  describe "when name is too long" do
   	before {@user.name = "a" * 51 }
   	it { should_not be_valid }
   end
 
   describe "when email format is invalid" do
-  	it "should be invalid" do   
+  	it "should be invalid" do
   		addresses = %w[user@ex,com user_at_foo.org exam.user@foo.
   						foo@bar_baz.com foo@bar+baz.com]
-  		addresses.each do |invalid_address|	
+  		addresses.each do |invalid_address|
   			@user.email = invalid_address
   			@user.should_not be_valid
   		end
-  	end 
+  	end
   end
 
   describe "when email format is valid" do
-  	it "should be valid" do   
+  	it "should be valid" do
   		addresses = %w[user@ex.com A_USER@f.t.org c+d@mob.de ]
   		addresses.each do |valid_address|
   			@user.email = valid_address
   			@user.should be_valid
   		end
-  	end 
+  	end
   end
 
   describe "when email address is already taken" do
@@ -85,7 +85,7 @@ describe User do
      before { @user.password_confirmation = "mismatch" }
      it { should_not be_valid }
   end
-  
+
   describe "when password confirmation is nil" do
   	before { @user.password_confirmation = nil }
   	it { should_not be_valid }
@@ -96,11 +96,11 @@ describe User do
     it { should be_invalid }
   end
 
-  describe "return value of authenticate method" do 
+  describe "return value of authenticate method" do
   	before { @user.save }
   	let(:found_user) { User.find_by_email(@user.email) }
 
-  	describe "with valid password" do 
+  	describe "with valid password" do
   		it { should == found_user.authenticate(@user.password)}
   	end
 
