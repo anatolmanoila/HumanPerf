@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+    sign_in @user
     if @user.save
       flash[:success] = "Welcome to the Human Perfection App!"
       redirect_to user_path(@user)

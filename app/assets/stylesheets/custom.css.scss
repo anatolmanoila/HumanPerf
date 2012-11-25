@@ -90,12 +90,12 @@ footer {
   color: $grayLight;
   a {
     color: $gray;
-    &:hover { 
+    &:hover {
       color: $grayDarker;
     }
-  }  
-  small { 
-    float: left; 
+  }
+  small {
+    float: left;
   }
   ul {
     float: right;
@@ -180,9 +180,9 @@ aside {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  height: auto;
+  height: auto !important;
   margin-bottom: 15px;
-  @include box_sizing;  
+  @include box_sizing;
 }
 
 #error_explanation {
