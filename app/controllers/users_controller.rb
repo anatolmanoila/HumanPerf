@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-  	@user = User.find(params[:id]) #here is how to get the value out of a hash using [] and passing the symbol :id
+  	@user = User.find(params[:id]) #here is how to get the value out of a hash using [] and passing the symbol key :id
   end
 
    def new
