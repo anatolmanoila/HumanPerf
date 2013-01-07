@@ -2,6 +2,7 @@ HPn::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+
   root to: 'static_pages#home'
 
   match '/signup', to: 'users#new'
@@ -13,8 +14,6 @@ HPn::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
 
 
-  resources :programs
-  #match '/programs', to 'programs#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
